@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import os   
 import requests
 import json
 import time
@@ -124,6 +125,7 @@ if __name__ == "__main__":
         # 调用发送文本的函数
         send_wechat_text(report)
     print("任务结束")
+
 
 
 
