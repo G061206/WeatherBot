@@ -16,7 +16,7 @@ LANG = "zh_cn"   # 简体中文
 
 # 2. 企业微信 Webhook 配置
 # 只需要 Key 部分，或者填入完整 URL 也可以，脚本逻辑里会处理
-WECOM_KEY = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=b2e863ca-0a6e-4e24-9e24-3ee796364595" 
+WECOM_KEY = "b2e863ca-0a6e-4e24-9e24-3ee796364595" 
 # ===========================================
 
 def get_weather():
@@ -115,3 +115,4 @@ if __name__ == "__main__":
         send_wechat_markdown(report)
 
     print("任务结束")
+
