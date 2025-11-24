@@ -7,16 +7,20 @@ import time
 from datetime import datetime
 
 # ================= 配置区域 =================
-# 1. OpenWeather 配置
-OWM_API_KEY = "120de1f9dae6386eed4e4c9a28c6b300"
-LAT = "27.917761"  # 举例：上海纬度
-LON = "120.694528" # 举例：上海经度
-UNITS = "metric" # metric=摄氏度, imperial=华氏度
-LANG = "zh_cn"   # 简体中文
 
-# 2. 企业微信 Webhook 配置
-# 只需要 Key 部分，或者填入完整 URL 也可以，脚本逻辑里会处理
-WECOM_KEY = "b2e863ca-0a6e-4e24-9e24-3ee796364595" 
+# 1. 从环境变量获取 Key (更安全)
+OWM_API_KEY = os.getenv("OWM_API_KEY")
+WECOM_KEY = os.getenv("WECOM_KEY")
+
+# 2. 经纬度可以写在代码里，或者也用环境变量
+LAT = "27.917761"
+LON = "120.694528"
+UNITS = "metric"
+LANG = "zh_cn"
+
+# 检查 Key 是否存在
+if not OWM_API_KEY or not WECOM_KEY:
+    raise ValueError("未找到环境变量 OWM_API_KEY 或 WECOM_KEY，请在 GitHub Secrets 中配置")
 # ===========================================
 
 def get_weather():
@@ -120,5 +124,6 @@ if __name__ == "__main__":
         # 调用发送文本的函数
         send_wechat_text(report)
     print("任务结束")
+
 
 
