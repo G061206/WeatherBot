@@ -10,7 +10,7 @@ from datetime import datetime
 # 1. OpenWeather 配置
 OWM_API_KEY = "120de1f9dae6386eed4e4c9a28c6b300"
 LAT = "27.917761"  # 举例：上海纬度
-LON = ",120.694528" # 举例：上海经度
+LON = "120.694528" # 举例：上海经度
 UNITS = "metric" # metric=摄氏度, imperial=华氏度
 LANG = "zh_cn"   # 简体中文
 
@@ -113,4 +113,5 @@ if __name__ == "__main__":
     if weather_data:
         report = generate_report(weather_data)
         send_wechat_markdown(report)
+
     print("任务结束")
